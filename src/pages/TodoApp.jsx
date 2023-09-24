@@ -1,16 +1,23 @@
+import { useEffect } from "react";
 import { useState } from "react"
-
-// const example = {
-//   id: new Date().getTime(),
-//   desc: 'Aprender React',
-//   done: false
-// }
 
 export const TodoApp = () => {
 
   const [todoList, setListTodo] = useState([]);
-
   const [todo, setTodo] = useState('');
+
+
+  useEffect(() => {
+      // Se obtienen los todos del localStorage
+      const todos = JSON.parse(localStorage.getItem('todoList')) ;
+      setListTodo(todos)
+  }, [])
+
+  useEffect(() => {
+    if(todoList.length > 0){
+      localStorage.setItem('todoList', JSON.stringify(todoList));
+    }
+  }, [todoList])
 
   // Completar tarea
   const handleDone = (id) => {
@@ -30,17 +37,15 @@ export const TodoApp = () => {
 
   // Agregar tarea
   const handleAdd = () => {
-    if (todo.trim().length <= 1) {
-      return;
-    }
+    if (todo.trim().length <= 1) return;
 
     const newTodo = {
       id: new Date().getTime(),
       desc: todo,
       done: false
-    }
-    setListTodo([...todoList, newTodo])
-    setTodo('')
+    };
+    setListTodo([...todoList, newTodo]);
+    setTodo('');
   }
 
   // Cambiar valor del input
