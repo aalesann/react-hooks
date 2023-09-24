@@ -1,14 +1,14 @@
 import { useState } from "react"
 
-const example = {
-  id: new Date().getTime(),
-  desc: 'Aprender React',
-  done: false
-}
+// const example = {
+//   id: new Date().getTime(),
+//   desc: 'Aprender React',
+//   done: false
+// }
 
 export const TodoApp = () => {
 
-  const [todoList, setListTodo] = useState([example]);
+  const [todoList, setListTodo] = useState([]);
 
   const [todo, setTodo] = useState('');
 
@@ -69,7 +69,8 @@ export const TodoApp = () => {
 
       {/* TodoAdd */}
       <div className="row mb-3">
-        <div className="col-4">
+        <div className="col-sm-12 col-md-4 mb-2 mb-md-3 mb-lg-0 ">
+          <h3>New Todo</h3>
           <input
             type="text"
             className="form-control"
@@ -89,7 +90,8 @@ export const TodoApp = () => {
         </div>
 
         {/* TodoList */}
-        <div className="col-8">
+        <div className="col-sm-12 col-md-8">
+          <h3>Todo List</h3>
           <ul className="list-unstyled">
             {/* TodoItems  */}
             {
@@ -101,7 +103,7 @@ export const TodoApp = () => {
                 :
                 (
                   todoList.map((item) => (
-                    <li key={item.id} className={`py-1 d-flex justify-content-between alert ${item.done ? 'alert-success' : 'alert-warning'}`}>
+                    <li key={item.id} className={`d-flex justify-content-between alert ${item.done ? 'alert-success' : 'alert-warning'}`}>
                       <span>{item.desc}</span>
                       <button
                         className="btn btn-sm"
