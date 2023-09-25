@@ -1,8 +1,17 @@
-# React + Vite
+# React Hooks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio contiene una aplicación sencilla de los hooks de React.
 
-Currently, two official plugins are available:
+## Para inicializar el proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Instalar dependencias con pnpm:
+```bash
+pnpm install
+```
+
+Inicializar aplicación:
+```bash
+pnpm run dev
+```
+
+Puerto definido por defecto: 3000
